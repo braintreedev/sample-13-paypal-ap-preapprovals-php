@@ -18,7 +18,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Make a payment</td>
+	<td>link=Pre-approve a payment</td>
 	<td></td>
 </tr>
 <tr>
@@ -68,8 +68,18 @@
 </tr>
 <tr>
 	<td>assertText</td>
+	<td>css=h1</td>
+	<td>Pre-approval accepted</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Capture the payment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
 	<td>css=body</td>
-	<td>Payment completed</td>
+	<td>Transaction completed</td>
 </tr>
 </tbody></table>
 </body>

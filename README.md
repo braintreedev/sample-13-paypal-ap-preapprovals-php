@@ -24,7 +24,9 @@ This demo uses
   * Username: `us-customer@commercefactory.org`
   * Password: `test1234`
 * Complete the payment instructions
-* You will receive a message that says __"Payment completed"__
+* You will receive a message that says __"Pre-approval accepted"__
+* Now click the link to actually capture the payment
+* You will receive a message that says __"Transaction completed"__
 
 ## Running the test
 
