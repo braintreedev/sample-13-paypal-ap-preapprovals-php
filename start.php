@@ -1,6 +1,7 @@
 <?php
+session_start();
 require('includes/config.php');
-require('includes/paypal-ap.php');
+require('includes/paypal/adaptive-payments.php');
 
 $paypal = new PayPal($config);
 
@@ -9,14 +10,15 @@ $result = $paypal->call(
       'startingDate' => date('Y-m-d\TH:i:s\Z'),
       'maxTotalAmountOfAllPayments' => '800.00',
       'currencyCode'  => 'USD',
-      'memo'  => 'Example',
-      'requestEnvelope' => array(
-        'errorLanguage' => 'en_US',
-      ),
-  ), "Preapproval");
+      'memo'  => 'Preapproval of 800 USD',
+      'cancelUrl' => 'cancel.php',
+      'returnUrl' => 'success.php'
+  ), "Preapproval"
+);
 
 if ($result['responseEnvelope']['ack'] == 'Success') {
+  $_SESSION['preapprovalKey'] = $result['preapprovalKey'];
   $paypal->redirect($result);
 } else {
-  echo 'Handle the payment creation failure <br>';
+  echo 'Handle the payment creation failure';
 }

@@ -1,0 +1,3 @@
+[submodule "includes/paypal"]
+	path = includes/paypal
+	url = git@github.com:cbetta/paypal-adaptive-payments-wrapper-php.git

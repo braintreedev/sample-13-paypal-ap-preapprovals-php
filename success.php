@@ -1,25 +1,18 @@
 <?php
-
+session_start();
 require('includes/config.php');
-require('includes/paypal-ap.php');
+require('includes/paypal/adaptive-payments.php');
 
-if (@!$_GET['preapprovalkey']) {
-  echo 'preapprovalkey not available';
+$paypal = new PayPal($config);
+
+$result = $paypal->call(
+  array(
+    'preapprovalKey'  => $_SESSION['preapprovalKey'],
+  ), "PreapprovalDetails"
+);
+
+if ($result['responseEnvelope']['ack'] == "Success") {
+  echo 'Payment completed';
 } else {
-
-  $paypal = new PayPal($config);
-
-  $result = $paypal->call(
-    array(
-      'preapprovalKey'  => $_GET['preapprovalkey'],
-      'requestEnvelope'  => array(
-          'errorLanguage'  => 'en_US',
-    )
-  ), "PreapprovalDetails");
-
-  if ($result['responseEnvelope']['ack'] == "Success") {
-    echo 'Payment completed';
-  } else {
-    echo 'Handle payment execution failure';
-  }
+  echo 'Handle payment execution failure';
 }
