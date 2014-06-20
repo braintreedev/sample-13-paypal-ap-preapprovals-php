@@ -2,7 +2,7 @@
 
 This is an example of the PayPal Adaptive Payment API in PHP to make a Pre-Approval payment.
 
-This code does not use an SDK although it uses a basic wrapper to handle the NVP API. You can use [this library](includes/paypal.php) as a drop in for your project.
+This code does not use an SDK although it uses a basic wrapper to handle the NVP API. You can use [this library](https://github.com/commercefactory/paypal-adaptive-payments-wrapper-php) as a drop in for your project.
 
 ## Technology
 
@@ -12,6 +12,10 @@ This demo uses
 
 ## Running the demo
 
+* Clone this repo `git clone https://github.com/commercefactory/paypal-adaptive-payments-preapprovals-php.git`
+* Change into the folder `cd paypal-adaptive-payments-preapprovals-php`
+* Initialise the submodule `git submodule init`
+* Update the submodule `git submodule update`
 * Run `php -S 127.0.0.1:8080` to start the app (requires PHP 5.4 or above) or load it in your web server of choice.
 * Visit `http://127.0.0.1:8080/` in your browser
 * Click the __"Make a payment"__ link
@@ -32,4 +36,4 @@ This demo uses
 
 ## Useful link
 
-* [List of methods available on the Merchant API](https://developer.paypal.com/docs/classic/api/#merchant)
+* [List of methods available on the Adaptive Payments API](https://developer.paypal.com/docs/classic/api/#ap)
